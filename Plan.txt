@@ -1,0 +1,32 @@
+Game:
+	Attributes:
+		-Board
+		-Timer
+		-Player One
+		-Player Two
+	Methods:
+		-changeTurn()
+		-start()
+Board:
+	Attributes:
+		-Array[8][8] Positions
+	Methods:
+		-isValid()
+
+Position:
+	Attibutes:
+		-x-coord
+		-y-coord
+		-Piece
+	Methods:
+		-removePiece()
+		-addPiece()
+		-getX()
+		-getY()
+Piece:
+	Attributes:
+		-color
+		-picture
+	Methods:
+		-getMoveLocations()
+		-makeMove()
