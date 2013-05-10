@@ -13,6 +13,9 @@ public class Rook extends Piece {
 		Up Positions
 		 */
 		while(getPosition(x,y+i) != null) {
+			if(getPosition(x, y+i).hasAPiece()){
+				break;
+			}
 			possibleMoves.add(getPosition(x, y+i));
 			i++;
 		}
@@ -20,6 +23,9 @@ public class Rook extends Piece {
 		Down Positions
 		 */
 		while(getPosition(x,y-i) != null) {
+			if(getPosition(x, y-i).hasAPiece()){
+				break;
+			}
 			possibleMoves.add(getPosition(x, y-i));
 			i++;
 		}
@@ -27,6 +33,9 @@ public class Rook extends Piece {
 		Right Positions
 		 */
 		while(getPosition(x+i, y) != null) {
+			if(getPosition(x+i, y).hasAPiece()){
+				break;
+			}
 			possibleMoves.add(getPosition(x+i, y));
 			i++;
 		}
@@ -34,6 +43,9 @@ public class Rook extends Piece {
 		Left Positions
 		 */
 		while(getPosition(x-i,y) != null) {
+			if(getPosition(x-i, y).hasAPiece()){
+				break;
+			}
 			possibleMoves.add(getPosition(x-i, y));
 			i++;
 		}

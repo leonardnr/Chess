@@ -1,6 +1,5 @@
 public class Bishop extends Piece {
 
-	private boolean onBoard;
 
 	public Bishop() {
 
@@ -13,29 +12,41 @@ public class Bishop extends Piece {
 		/*
 		Upper Right Positions
 		 */
-		while(getPosistion(x+i, y+i) != null) {
-			possibleMoves.add(getPosition(x+i, y+1));
+		while(getPosition(x+i, y+i) != null) {
+			if(getPosition(x+i, y+i).hasAPiece()){
+				break;
+			}
+			possibleMoves.add(getPosition(x+i, y+i));
 			i++;
 		}
 		/*
 		Upper Left Positions
 		 */
-		while(getPosistion(x-i, y+i) != null) {
-			possibleMoves.add(getPosition(x-i, y+1));
+		while(getPosition(x-i, y+i) != null) {
+			if(getPosition(x-i, y+i).hasAPiece()){
+				break;
+			}
+			possibleMoves.add(getPosition(x-i, y+i));
 			i++;
 		}
 		/*
 		Lower Right Positions
 		 */
-		while(getPosistion(x+i, y-i) != null) {
-			possibleMoves.add(getPosition(x+i, y-1));
+		while(getPosition(x+i, y-i) != null) {
+			if(getPosition(x+i, y-i).hasAPiece()){
+				break;
+			}
+			possibleMoves.add(getPosition(x+i, y-i));
 			i++;
 		}
 		/*
 		Lower Left Positions
 		 */
-		while(getPosistion(x-i, y-i) != null) {
-			possibleMoves.add(getPosition(x-i, y-1));
+		while(getPosition(x-i, y-i) != null) {
+			if(getPosition(x-i, y-i).hasAPiece()){
+				break;
+			}
+			possibleMoves.add(getPosition(x-i, y-i));
 			i++;
 		}
 	return possibleMoves;

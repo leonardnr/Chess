@@ -63,6 +63,15 @@ public class Piece {
 		
 	}
 
+	/**
+	 * makeMove
+	 * 		moves the current piece to the specified position
+	 * @param p the position to be moved to
+	 */
+	public void makeMove(Position p){
+
+	}
+
 
 
 
