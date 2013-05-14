@@ -12,41 +12,41 @@ public class Rook extends Piece {
 		/*
 		Up Positions
 		 */
-		while(getPosition(x,y+i) != null) {
-			if(getPosition(x, y+i).hasAPiece()){
+		while(getPosition(super.getX(), super.getY()+i) != null) {
+			if(getPosition(super.getX(), super.getY()+i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x, y+i));
+			possibleMoves.add(getPosition(super.getX(), super.getY()+i));
 			i++;
 		}
 		/*
 		Down Positions
 		 */
-		while(getPosition(x,y-i) != null) {
-			if(getPosition(x, y-i).hasAPiece()){
+		while(getPosition(super.getX(), super.getY()-i) != null) {
+			if(getPosition(super.getX(), super.getY()-i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x, y-i));
+			possibleMoves.add(getPosition(super.getX(), super.getY()-i));
 			i++;
 		}
 		/*
 		Right Positions
 		 */
-		while(getPosition(x+i, y) != null) {
-			if(getPosition(x+i, y).hasAPiece()){
+		while(getPosition(super.getX()+i, super.getY()) != null) {
+			if(getPosition(super.getX()+i, super.getY()).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x+i, y));
+			possibleMoves.add(getPosition(super.getX()+i, super.getY()));
 			i++;
 		}
 		/*
 		Left Positions
 		 */
-		while(getPosition(x-i,y) != null) {
-			if(getPosition(x-i, y).hasAPiece()){
+		while(getPosition(super.getX()-i, super.getY()) != null) {
+			if(getPosition(super.getX()-i, super.getY()).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x-i, y));
+			possibleMoves.add(getPosition(super.getX()-i, super.getY()));
 			i++;
 		}
 	return possibleMoves;
