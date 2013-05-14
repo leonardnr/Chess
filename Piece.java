@@ -1,15 +1,37 @@
+import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.util.ArrayList;
+
 public class Piece {
 	
 	private Color color;
 	private int x;
 	private int y;
 
-	public Piece(Color color, int x, int y){
+	private BufferedImage image;
+	private boolean isWhite;
+
+	public Piece(Color color, int x, int y, boolean isWhite){
 		setColor(color);
+		this.isWhite = isWhite;
+		image = ChessApplet.getImage(this);
 		setX(x);
 		setY(y);
+	}
+
+	/**
+	 * draw
+	 * 		paint the piece to the screen, must be called from the paint
+	 * 		method of a Graphic object
+	 * @param g   - the drawing context
+	 * @param dim - dimensions of the containing Square
+	 */
+	public void draw(Graphics g, Dimension dim) {
+		g.drawImage(image, 0, 0, (int)dim.getWidth(), (int)dim.getHeight(), null);
+	}
+
+	public boolean isWhite() {
+		return isWhite;
 	}
 
 	public void setX(int x){
