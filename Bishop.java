@@ -1,6 +1,5 @@
 public class Bishop extends Piece {
 
-	private boolean onBoard;
 
 	public Bishop() {
 
