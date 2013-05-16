@@ -1,22 +1,52 @@
-import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.awt.*;
+
+
 public class Piece {
 	
 	private Color color;
 	private int x;
 	private int y;
 
-	public Piece(Color color, int x, int y){
+	private BufferedImage image;
+	private boolean isWhite;
+
+	public Piece(Color color, int x, int y, boolean isWhite){
 		setColor(color);
+		this.isWhite = isWhite;
+		image = ChessApplet.getImage(this);
 		setX(x);
 		setY(y);
+	}
+
+
+	public Piece(Color color){
+		setColor(color);
+		setX(0);
+		setY(0);
+	}
+
+	/**
+	 * draw
+	 * 		paint the piece to the screen, must be called from the paint
+	 * 		method of a Graphic object
+	 * @param g   - the drawing context
+	 * @param dim - dimensions of the containing Square
+	 */
+	public void draw(Graphics g, Dimension dim) {
+		g.drawImage(image, 0, 0, (int)dim.getWidth(), (int)dim.getHeight(), null);
+	}
+
+	public boolean isWhite() {
+		return isWhite;
 	}
 
 	public void setX(int x){
 		this.x = x;
 	}
 	public void setY(int y){
-		this.x = y;
+		this.y = y;
 	}
 	public int getX(){
 		return this.x;
@@ -33,6 +63,9 @@ public class Piece {
 			System.out.println("Color input error.  Color has been set to green.");
 			this.color = Color.green; 
 		}
+	}
+	public Color getColor(){
+		return color;
 	}
 
 	/**
@@ -55,11 +88,12 @@ public class Piece {
 		ArrayList<Position> adjPos = new ArrayList<Position>();
 		for(int x = this.x - 1; x <= this.x + 1; x++){
 			for(int y = this.y - 1; y <= this.y + 1; y--){
-				if(getPosition(x, y) != null && getPosition(x, y).getPiece() != null){
-					adjPos.add(getPosition(x, y));
+				if(Board.getPosition(x, y) != null && Board.getPosition(x, y).getPiece() != null){
+					adjPos.add(Board.getPosition(x, y));
 				}
 			}
 		}
+		return adjPos;
 		
 	}
 

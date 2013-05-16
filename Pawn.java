@@ -1,49 +1,50 @@
 import java.awt.Color;
+import java.util.ArrayList;
 
 
 public class Pawn extends Piece{
 	
 	private boolean hasMoved;
 
-	public Pawn(Color color, int x){
+	public Pawn(Color color){
 		super(color);
 		if(color== Color.WHITE){
-			int y=6; 
+			setY(6);
 		} else if(color == Color.BLACK){
-			int y=1;
+			setY(1);
 		}
-		this.x=x;
 		hasMoved=false;
 	}
 
 	public ArrayList<Position> getMovePositions(){
 		ArrayList<Position> moves = new ArrayList<Position>();
-		if(!hasMoved && color==Color.WHITE && getPosition(this.x,y-1) != null && getPosition(this.x,y-2) != null){
-			moves.add(getPosition(x,y-2));
-			moves.add(getPosition(x,y-1));
-		} else if(!hasMoved && color==Color.WHITE && getPosition(this.x,y-1) != null){
-			moves.add(getPosition(x,y-1));
-		} else if(!hasMoved && color==Color.BLACK && getPosition(this.x,y-1) != null && getPosition(this.x,y-2) != null){
-			moves.add(getPosition(x,y+2));
-			moves.add(getPosition(x,y+1));
-		} else if(!hasMoved && color==Color.BLACK && getPosition(this.x,y-1) != null){
-			moves.add(getPosition(x,y+1));
+		if(!hasMoved && super.getColor()==Color.WHITE && Board.getPosition(super.getX(),super.getY()-1) != null && Board.getPosition(super.getX(),getY()-2) != null && !Board.getPosition(super.getX(),getY()-1).hasAPiece() && !Board.getPosition(super.getX(),getY()-2).hasAPiece()){
+			moves.add(Board.getPosition(super.getX(),super.getY()-2));
+			moves.add(Board.getPosition(super.getX(),getY()-1));
+		} else if(!hasMoved && super.getColor()==Color.WHITE && Board.getPosition(super.getX(),getY()-1) != null && !Board.getPosition(super.getX(),getY()-1).hasAPiece()){
+			moves.add(Board.getPosition(super.getX(),getY()-1));
+		} else if(!hasMoved && super.getColor()==Color.BLACK && Board.getPosition(super.getX(),getY()+1) != null && Board.getPosition(super.getX(),getY()+2) != null && !Board.getPosition(super.getX(),getY()+1).hasAPiece() && !Board.getPosition(super.getX(),getY()+2).hasAPiece()){
+			moves.add(Board.getPosition(super.getX(),getY()+2));
+			moves.add(Board.getPosition(super.getX(),getY()+1));
+		} else if(!hasMoved && super.getColor()==Color.BLACK && Board.getPosition(super.getX(),getY()+1) != null && !Board.getPosition(super.getX(),getY()+1).hasAPiece()){
+			moves.add(Board.getPosition(super.getX(),getY()+1));
 		}
-		return moves.addAll(getAttackLocations());
+		moves.addAll(getAttackLocations());
+		return moves;
 
 	}
 
 
 	public ArrayList<Position> getAttackLocations(){
 		ArrayList<Position> moves = new ArrayList<Position>();
-		if(color == Color.WHITE && getPosition(x+1,y-1) != null && getPosition(x+1,y-1).hasAPiece()){
-			moves.add(getPosition(x+1,y-1));
-		} else if(color == Color.WHITE && getPosition(x-1,y-1) != null && getPosition(x-1,y-1).hasAPiece()){
-			moves.add(getPosition(x-1,y-1));
-		} else if(color == Color.BLACK && getPosition(x+1,y+1) != null && getPosition(x+1,y+1).hasAPiece()){
-			moves.add(getPosition(x-1,y+1));
-		} else if(color == Color.BLACK && getPosition(x-1,y+1) != null && getPosition(x-1,y+1).hasAPiece()){
-			moves.add(getPosition(x+1,y+1));
+		if(super.getColor() == Color.WHITE && Board.getPosition(super.getX()+1,getY()-1) != null && Board.getPosition(super.getX()+1,getY()-1).hasAPiece()){
+			moves.add(Board.getPosition(super.getX()+1,getY()-1));
+		} else if(super.getColor() == Color.WHITE && Board.getPosition(super.getX()-1,getY()-1) != null && Board.getPosition(super.getX()-1,getY()-1).hasAPiece()){
+			moves.add(Board.getPosition(super.getX()-1,getY()-1));
+		} else if(super.getColor() == Color.BLACK && Board.getPosition(super.getX()+1,getY()+1) != null && Board.getPosition(super.getX()+1,getY()+1).hasAPiece()){
+			moves.add(Board.getPosition(super.getX()-1,getY()+1));
+		} else if(super.getColor() == Color.BLACK && Board.getPosition(super.getX()-1,getY()+1) != null && Board.getPosition(super.getX()-1,getY()+1).hasAPiece()){
+			moves.add(Board.getPosition(super.getX()+1,getY()+1));
 		}
 		return moves;
 
@@ -51,7 +52,7 @@ public class Pawn extends Piece{
 
 	public void hasMoved(){
 		if(!hasMoved){
-			hasMoved=true
+			hasMoved=true;
 		}
 	}
 }

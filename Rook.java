@@ -1,52 +1,57 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
 public class Rook extends Piece {
 	
 	private boolean onBoard;
 
-	public Rook() {
-
+	public Rook(Color color) {
+		super(color);
 	}
 
 	public ArrayList<Position> getMovePositions() {
 		int i = 0;
-		ArrayList<Position> possibleMoves = new ArrayList<Position>;
+		ArrayList<Position> possibleMoves = new ArrayList<Position>();
 		/*
 		Up Positions
 		 */
-		while(getPosition(x,y+i) != null) {
-			if(getPosition(x, y+i).hasAPiece()){
+
+		while(Board.getPosition(super.getX(),getY()+i) != null) {
+			if(Board.getPosition(super.getX(), getY()+i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x, y+i));
+			possibleMoves.add(Board.getPosition(super.getX(), getY()+i));
 			i++;
 		}
 		/*
 		Down Positions
 		 */
-		while(getPosition(x,y-i) != null) {
-			if(getPosition(x, y-i).hasAPiece()){
+
+		while(Board.getPosition(super.getX(),getY()-i) != null) {
+			if(Board.getPosition(super.getX(), getY()-i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x, y-i));
+			possibleMoves.add(Board.getPosition(super.getX(), getY()-i));
 			i++;
 		}
 		/*
 		Right Positions
 		 */
-		while(getPosition(x+i, y) != null) {
-			if(getPosition(x+i, y).hasAPiece()){
+		while(Board.getPosition(super.getX()+i, getY()) != null) {
+			if(Board.getPosition(super.getX()+i, getY()).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x+i, y));
+			possibleMoves.add(Board.getPosition(super.getX()+i, getY()));
 			i++;
 		}
 		/*
 		Left Positions
 		 */
-		while(getPosition(x-i,y) != null) {
-			if(getPosition(x-i, y).hasAPiece()){
+		while(Board.getPosition(super.getX()-i,getY()) != null) {
+			if(Board.getPosition(super.getX()-i, getY()).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x-i, y));
+			possibleMoves.add(Board.getPosition(super.getX()-i, getY()));
 			i++;
 		}
 	return possibleMoves;
