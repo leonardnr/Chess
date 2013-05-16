@@ -1,8 +1,8 @@
 public class Board{
 	
-	private Position[][] positions;
+	private static Position[][] positions;
 
-	public class Board(){
+	public Board(){
 		positions = new Position[8][8];
 
 	}
@@ -14,7 +14,7 @@ public class Board{
 	 * @param  y the y coord of the position
 	 * @return   the position at the coords
 	 */
-	public Position getPosition(int x, int y){
+	public static Position getPosition(int x, int y){
 		if(x<8 && x>=0 && y<8 && y>=0){
 			return positions[x][y];
 		} 
