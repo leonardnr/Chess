@@ -1,3 +1,6 @@
+import java.awt.*;
+import javax.swing.*;
+
 public class Board extends JPanel{
 	
 	private static Position[][] positions;
@@ -56,14 +59,14 @@ public class Board extends JPanel{
 	 * 		sets up the row of black pieces with the knights, rooks, bishops, queen, and king
 	 */
 	public static void backBlackRow(){
-		position[0][0].setPiece(new Rook(Color.black));
-		position[0][7].setPiece(new Rook(Color.black));
-		position[0][1].setPiece(new Knight(Color.black));
-		position[0][6].setPiece(new Knight(Color.black));
-		position[0][2].setPiece(new Bishop(Color.black));
-		position[0][5].setPiece(new Bishop(Color.black));
-		position[0][3].setPiece(new Queen(Color.black));
-		position[0][4].setPiece(new King(Color.black));
+		positions[0][0].setPiece(new Rook(Color.black));
+		positions[0][7].setPiece(new Rook(Color.black));
+		positions[0][1].setPiece(new Knight(Color.black));
+		positions[0][6].setPiece(new Knight(Color.black));
+		positions[0][2].setPiece(new Bishop(Color.black));
+		positions[0][5].setPiece(new Bishop(Color.black));
+		positions[0][3].setPiece(new Queen(Color.black));
+		positions[0][4].setPiece(new King(Color.black));
 	}
 
 	/**
@@ -71,14 +74,14 @@ public class Board extends JPanel{
 	 * 		sets up the row of white pieces with the knights, rooks, bishops, queen, and king
 	 */
 	public static void backWhiteRow(){
-		position[7][0].setPiece(new Rook(Color.black));
-		position[7][7].setPiece(new Rook(Color.black));
-		position[7][1].setPiece(new Knight(Color.black));
-		position[7][6].setPiece(new Knight(Color.black));
-		position[7][2].setPiece(new Bishop(Color.black));
-		position[7][5].setPiece(new Bishop(Color.black));
-		position[7][4].setPiece(new Queen(Color.black));
-		position[7][3].setPiece(new King(Color.black));
+		positions[7][0].setPiece(new Rook(Color.black));
+		positions[7][7].setPiece(new Rook(Color.black));
+		positions[7][1].setPiece(new Knight(Color.black));
+		positions[7][6].setPiece(new Knight(Color.black));
+		positions[7][2].setPiece(new Bishop(Color.black));
+		positions[7][5].setPiece(new Bishop(Color.black));
+		positions[7][4].setPiece(new Queen(Color.black));
+		positions[7][3].setPiece(new King(Color.black));
 	}
 
 }
