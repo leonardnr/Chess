@@ -1,52 +1,57 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
 public class Rook extends Piece {
 	
 	private boolean onBoard;
 
-	public Rook() {
-
+	public Rook(Color color) {
+		super(color);
 	}
 
 	public ArrayList<Position> getMovePositions() {
 		int i = 0;
-		ArrayList<Position> possibleMoves = new ArrayList<Position>;
+		ArrayList<Position> possibleMoves = new ArrayList<Position>();
 		/*
 		Up Positions
 		 */
-		while(getPosition(super.getX(), super.getY()+i) != null) {
-			if(getPosition(super.getX(), super.getY()+i).hasAPiece()){
+
+		while(Board.getPosition(super.getX(),getY()+i) != null) {
+			if(Board.getPosition(super.getX(), getY()+i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(super.getX(), super.getY()+i));
+			possibleMoves.add(Board.getPosition(super.getX(), getY()+i));
 			i++;
 		}
 		/*
 		Down Positions
 		 */
-		while(getPosition(super.getX(), super.getY()-i) != null) {
-			if(getPosition(super.getX(), super.getY()-i).hasAPiece()){
+
+		while(Board.getPosition(super.getX(),getY()-i) != null) {
+			if(Board.getPosition(super.getX(), getY()-i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(super.getX(), super.getY()-i));
+			possibleMoves.add(Board.getPosition(super.getX(), getY()-i));
 			i++;
 		}
 		/*
 		Right Positions
 		 */
-		while(getPosition(super.getX()+i, super.getY()) != null) {
-			if(getPosition(super.getX()+i, super.getY()).hasAPiece()){
+		while(Board.getPosition(super.getX()+i, getY()) != null) {
+			if(Board.getPosition(super.getX()+i, getY()).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(super.getX()+i, super.getY()));
+			possibleMoves.add(Board.getPosition(super.getX()+i, getY()));
 			i++;
 		}
 		/*
 		Left Positions
 		 */
-		while(getPosition(super.getX()-i, super.getY()) != null) {
-			if(getPosition(super.getX()-i, super.getY()).hasAPiece()){
+		while(Board.getPosition(super.getX()-i,getY()) != null) {
+			if(Board.getPosition(super.getX()-i, getY()).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(super.getX()-i, super.getY()));
+			possibleMoves.add(Board.getPosition(super.getX()-i, getY()));
 			i++;
 		}
 	return possibleMoves;

@@ -4,6 +4,7 @@ public class Game {
 
 	public Game(){
 		this.board = new Board();
+		board.setBoard();
 	}
 
 	

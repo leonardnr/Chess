@@ -1,52 +1,55 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
 public class Bishop extends Piece {
 
 
-	public Bishop() {
-
+	public Bishop(Color color) {
+		super(color);
 	}
 
 	
-	public ArrayList<Postion> getMovePositions() {
+	public ArrayList<Position> getMovePositions() {
 		int i = 1;
-		ArrayList<Postion> possibleMoves = new ArrayList<Postion>;
+		ArrayList<Position> possibleMoves = new ArrayList<Position>();
 		/*
 		Upper Right Positions
 		 */
-		while(getPosition(x+i, y+i) != null) {
-			if(getPosition(x+i, y+i).hasAPiece()){
+		while(Board.getPosition(super.getX()+i, getY()+i) != null) {
+			if(Board.getPosition(super.getX()+i, getY()+i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x+i, y+i));
+			possibleMoves.add(Board.getPosition(super.getX()+i, getY()+i));
 			i++;
 		}
 		/*
 		Upper Left Positions
 		 */
-		while(getPosition(x-i, y+i) != null) {
-			if(getPosition(x-i, y+i).hasAPiece()){
+		while(Board.getPosition(super.getX()-i, getY()+i) != null) {
+			if(Board.getPosition(super.getX()-i, getY()+i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x-i, y+i));
+			possibleMoves.add(Board.getPosition(super.getX()-i, getY()+i));
 			i++;
 		}
 		/*
 		Lower Right Positions
 		 */
-		while(getPosition(x+i, y-i) != null) {
-			if(getPosition(x+i, y-i).hasAPiece()){
+		while(Board.getPosition(super.getX()+i, getY()-i) != null) {
+			if(Board.getPosition(super.getX()+i, getY()-i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x+i, y-i));
+			possibleMoves.add(Board.getPosition(super.getX()+i, getY()-i));
 			i++;
 		}
 		/*
 		Lower Left Positions
 		 */
-		while(getPosition(x-i, y-i) != null) {
-			if(getPosition(x-i, y-i).hasAPiece()){
+		while(Board.getPosition(super.getX()-i, getY()-i) != null) {
+			if(Board.getPosition(super.getX()-i, getY()-i).hasAPiece()){
 				break;
 			}
-			possibleMoves.add(getPosition(x-i, y-i));
+			possibleMoves.add(Board.getPosition(super.getX()-i, getY()-i));
 			i++;
 		}
 	return possibleMoves;
