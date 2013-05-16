@@ -15,6 +15,7 @@ public class Rook extends Piece {
 		/*
 		Up Positions
 		 */
+
 		while(Board.getPosition(super.getX(),getY()+i) != null) {
 			if(Board.getPosition(super.getX(), getY()+i).hasAPiece()){
 				break;
@@ -25,6 +26,7 @@ public class Rook extends Piece {
 		/*
 		Down Positions
 		 */
+
 		while(Board.getPosition(super.getX(),getY()-i) != null) {
 			if(Board.getPosition(super.getX(), getY()-i).hasAPiece()){
 				break;
