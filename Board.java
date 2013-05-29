@@ -13,10 +13,7 @@ public class Board extends JPanel{
 		positions = new Position[8][8];
 		for(int x = 0; x < 8; x++){
 			for(int y = 0; y < 8; y++){
-				Position p = new Position(x * 100, y * 100);
-				// System.out.print(x);
-				// System.out.print(y);
-				// System.out.println();
+				Position p = new Position(x * 100, y * 100, this);
 				this.add(p);
 				positions[x][y] = p;
 			}

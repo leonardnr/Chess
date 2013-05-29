@@ -38,7 +38,7 @@ public class Piece {
 	 * @param dim - dimensions of the containing Square
 	 */
 	public void draw(Graphics g, Dimension dim, Component c) {
-		//g.drawImage(image, x * 100, y * 100, (int)(dim.getWidth() * 1), (int)(dim.getHeight() * 1), null);
+		
 		img.paintIcon(c, g, x * 100, y * 100);
 
 	}
