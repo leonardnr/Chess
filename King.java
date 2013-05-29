@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class King extends Piece {
 
-	public King(Color color) {
-		super(color);
+	public King(Color color, int x, int y, boolean isWhite) {
+		super(color, x, y, isWhite);
 	}
 
 	public ArrayList<Position> getMovePositions() {

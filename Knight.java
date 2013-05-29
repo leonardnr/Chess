@@ -5,8 +5,8 @@ public class Knight extends Piece {
 	
 	private boolean onBoard;
 	
-	public Knight(Color color) {
-		super(color);
+	public Knight(Color color, int x, int y, boolean isWhite) {
+		super(color, x, y, isWhite);
 	}
 
 	public ArrayList<Position> getMovePositions() {
