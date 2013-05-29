@@ -138,7 +138,7 @@ public class ChessApplet extends JApplet implements ActionListener {
 	 * @param e - object that holds information about the event
 	 */
 	public void actionPerformed(ActionEvent e) {
-
+		
 	}
 
 
