@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.awt.*;
+import javax.swing.*;
 
 
 public class Piece {
@@ -11,11 +12,13 @@ public class Piece {
 
 	private BufferedImage image;
 	private boolean isWhite;
+	private ImageIcon img;
 
 	public Piece(Color color, int x, int y, boolean isWhite){
 		setColor(color);
 		this.isWhite = isWhite;
 		image = ChessApplet.getImage(this);
+		img = new ImageIcon(image);
 		setX(x);
 		setY(y);
 	}
@@ -34,8 +37,14 @@ public class Piece {
 	 * @param g   - the drawing context
 	 * @param dim - dimensions of the containing Square
 	 */
-	public void draw(Graphics g, Dimension dim) {
-		g.drawImage(image, 0, 0, (int)dim.getWidth(), (int)dim.getHeight(), null);
+	public void draw(Graphics g, Dimension dim, Component c) {
+		//g.drawImage(image, x * 100, y * 100, (int)(dim.getWidth() * 1), (int)(dim.getHeight() * 1), null);
+		img.paintIcon(c, g, x * 100, y * 100);
+
+	}
+
+	public ImageIcon getImg(){
+		return this.img;
 	}
 
 	public boolean isWhite() {
