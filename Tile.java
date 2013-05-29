@@ -16,7 +16,7 @@ public class Tile extends JPanel {
 	public void paint(Graphics g) {
 		super.paint(g);
 
-		piece.draw(g, this.getSize());
+		//piece.draw(g, this.getSize());
 	}
 
 }
