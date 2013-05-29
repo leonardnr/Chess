@@ -41,6 +41,8 @@ public class ChessApplet extends JApplet implements ActionListener {
 		panel.add(blackCaptures, BorderLayout.EAST);
 
 		this.add(panel);
+
+
 	}
 
 	/**

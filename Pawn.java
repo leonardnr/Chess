@@ -6,8 +6,8 @@ public class Pawn extends Piece{
 	
 	private boolean hasMoved;
 
-	public Pawn(Color color){
-		super(color);
+	public Pawn(Color color, int x, int y, Boolean isWhite){
+		super(color, x, y, isWhite);
 		if(color== Color.WHITE){
 			setY(6);
 		} else if(color == Color.BLACK){

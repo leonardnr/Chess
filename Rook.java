@@ -5,8 +5,8 @@ public class Rook extends Piece {
 	
 	private boolean onBoard;
 
-	public Rook(Color color) {
-		super(color);
+	public Rook(Color color, int x, int y, boolean isWhite) {
+		super(color, x, y, isWhite);
 	}
 
 	public ArrayList<Position> getMovePositions() {

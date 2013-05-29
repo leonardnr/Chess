@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Bishop extends Piece {
 
 
-	public Bishop(Color color) {
-		super(color);
+	public Bishop(Color color, int x, int y, boolean isWhite) {
+		super(color, x, y, isWhite);
 	}
 
 	
